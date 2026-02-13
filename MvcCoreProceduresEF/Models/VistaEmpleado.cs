@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MvcCoreProceduresEF.Models
 {
     [Table("V_EMPLEADOS_DEPARTAMENTOS")]
-    public class VistaEmpleados
+    public class VistaEmpleado
     {
         [Key]
         [Column("ID")]
