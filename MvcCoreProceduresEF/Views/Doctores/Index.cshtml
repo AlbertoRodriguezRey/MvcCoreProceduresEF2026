@@ -1,0 +1,71 @@
+﻿@model List<Doctor>
+
+@{
+    List<string> especialidades =
+            ViewData["ESPECIALIDADES"] as List<string>;
+}
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Doctores especialidad</h1>
+
+<form method="post">
+    <label>Seleccione una especialidad</label>
+    <select name="especialidad" class="form-control">
+        @foreach (string espe in especialidades)
+            {
+                <option>@espe</option>
+            }
+        </select>
+    <label>Incremento: </label>
+    <input type="text" name="incremento" class="form-control"/>
+    <button class="btn btn-info" name="accion" value="buscar">
+        Buscar
+    </button>
+    <button class="btn btn-warning" name="accion" value="incrementar">
+        Incrementar Procedure
+    </button>
+    <button class="btn btn-danger" name="accion" value="incrementaref">
+        Incrementar EF
+    </button>
+</form>
+
+@if (Model != null){
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Hospital</th>
+                <th>Id Doctor</th>
+                <th>Apellido</th>
+                <th>Especialidad</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdHospital)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdDoctor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Especialidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salario)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
